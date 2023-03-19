@@ -701,7 +701,7 @@ spec:
   #                                   #
   #####################################
     - metadata:
-        name: nats-jwt-pvc
+        name: memphis-jwt-pvc
       spec:
         accessModes:
         - ReadWriteOnce
