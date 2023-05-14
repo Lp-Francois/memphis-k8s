@@ -34,6 +34,8 @@ spec:
       labels:
         app: memphis-rest-gateway
     spec:
+      nodeSelector:
+        app: "digitalocean"
       initContainers:
         - name: k8s-busybox-waits4broker
           image: busybox:1.28
