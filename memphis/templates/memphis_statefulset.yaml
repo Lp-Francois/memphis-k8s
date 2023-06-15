@@ -348,6 +348,8 @@ spec:
           value: {{ .Values.logsRetentionInDays | quote }}
         - name: K8S_NAMESPACE
           value: {{ include "memphis.namespace" . }}
+        - name: PRODUCTION_ENV
+          value: {{ .Values.production_env | quote }}
         - name: ROOT_PASSWORD
           valueFrom:
               secretKeyRef:
