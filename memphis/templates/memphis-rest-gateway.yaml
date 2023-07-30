@@ -94,6 +94,9 @@ spec:
               secretKeyRef:
                 name: "memphis-creds"
                 key: REFRESH_JWT_SECRET_REST_GW
+          {{- if .Values.restGateway.extraEnvironmentVars.enabled }}
+          {{- .Values.restGateway.extraEnvironmentVars.vars | toYaml | nindent 10 }}
+          {{- end }}
           {{- with .Values.memphis.tls }}
           {{ $secretName := tpl .secret.name $ }}
           {{- with .cert }}
