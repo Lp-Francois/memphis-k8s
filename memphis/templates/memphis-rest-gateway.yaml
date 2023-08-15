@@ -49,7 +49,7 @@ spec:
           command: ['sh', '-c', "until nslookup {{ include "memphis.svcName" . }}.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for broker; sleep 2; done"]
       containers:
         - name: memphis-rest-gateway
-          image: {{ .Values.restGateway.image }}
+          image: {{ .Values.restGateway.image }}:{{ .Values.restGateway.tag }}
           resources:
             {{- toYaml .Values.restGateway.resources | nindent 12 }}
           imagePullPolicy: {{ .Values.restGateway.pullPolicy }}
