@@ -234,7 +234,7 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.memphis.terminationGracePeriodSeconds }}
       containers:
       - name: memphis
-        image: {{ .Values.memphis.image }}
+        image: {{ .Values.memphis.image }}:{{ .Values.memphis.tag }}
         imagePullPolicy: {{ .Values.memphis.pullPolicy }}
         {{- if .Values.memphis.securityContext }}
         securityContext:
